@@ -1,0 +1,134 @@
+
+/*-------------------BUTTONS--------------------*/
+
+/* main style */
+.button {
+	font-family: 'ralewaymedium';
+	font-size: 0.8rem;
+	margin: 0;
+	text-transform: uppercase;
+	word-spacing: 2px;
+}
+
+/* main size */
+.button.small {
+	padding: 0.7rem 1.6rem 0.6rem 1.6rem;
+	min-width: 7rem;
+}
+
+/* green button*/
+.button.green,
+.button.green:hover {
+	background: #77cca3;
+	border-bottom: 4px solid #43AD7C;
+}
+.button.green:active {
+	background: #b5debe;
+	border-bottom: 4px solid #43AD7C;
+}
+
+/* grey button*/
+.button.grey,
+.button.grey:hover {
+	background: #666666;
+	border-bottom: 4px solid #3d3d3d;
+}
+.button.grey:active {
+	background: #888888;
+	border-bottom: 4px solid #3d3d3d;
+}
+
+/* download button */
+.button.download {
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+}
+.button.download i {
+	margin-left: 0.4rem;
+}
+
+/* login page button */
+.login_page_form .button {
+	padding: 1rem 3rem;
+	min-width: 11rem;
+	position: absolute;
+	bottom: 3.5rem;
+	left: 50%;
+	margin-left: -5.5rem;
+}
+
+/* boxes */
+.btns_row .button {
+	margin: 1rem 0.7rem;
+	min-width: 9rem;
+}
+.btns_row.one .button {
+	margin: 2rem 0 1rem 0;
+}
+.big_btn_box {
+	margin: 2rem 0 1rem 0;
+	text-align: center;
+}
+.big_btn_box .button {
+	min-width: 10rem;
+}
+.btns_row .button.button_left_oriented {
+	margin-left: 0;
+}
+
+/*----------------LINKS-----------------*/
+
+/* green link */
+.table_link {
+	display: inline-block;
+	font-family: 'ralewaymedium';
+	font-size: 0.8rem;
+	text-align: center;
+	color: #77cca3;
+	border-bottom: 3px solid transparent;
+	min-width: 5rem;
+	padding: 0.3rem 0.8rem 0.2rem 0.8rem;
+	margin-top: -1px;
+}
+.table_link:hover {
+	background: #77cca3;
+	border-bottom: 3px solid #43AD7C;
+	color: #ffffff;
+}
+.table_link:active {
+	background: #b5debe;
+}
+
+/* grey link */
+.table_link.grey,
+.table_link.grey:hover {
+	background: #666666;
+	border-bottom: 3px solid #3d3d3d;
+	color: #ffffff;
+}
+.table_link.grey:active {
+	background: #888888;
+}
+
+/* mailto link */
+.mailto_link {
+	color: #77cca3;
+}
+
+/* boxes */
+.table_link.set {
+	margin-right: 0.3rem;
+}
+.table_link.invoice_link {
+	margin: 0.3rem 0 0.5rem 0;
+}
+
+/* get link box */
+.get_link_box input {
+	font-size: 0.8rem;
+	background-color: transparent!important;
+	border-color: #eeeeee!important;
+	height: 2rem!important;
+	margin: 0.5rem 0 0;
+}

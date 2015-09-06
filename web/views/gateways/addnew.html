@@ -1,0 +1,541 @@
+<div class="tabs_box">
+    <ul class="tabs" data-tab>
+        <li class="tab-title"><a href="#/gateways/connected">Connected gateways</a></li>
+        <li class="tab-title active"><a href="#/gateways/addnew">Add new</a></li>
+    </ul>
+
+    <!--ADD NEW GATEWAY-->
+    <div class="tabs-content border_radius">
+        <div ng-hide="braintreedivVisible||ewaydivVisible||ezidebitdivVisible||paypaldivVisible||pindivVisible||stripedivVisible||westpacdivVisible">
+        <p class="details_title">Add new gateway</p>
+        <p class="details_subtitle" >Those are the gateways currently supported by EnvoyRecharge. <br />
+        If you want to find any others here, send us your feedback at <span>support@envoyrecharge.com</span></p>
+            </div>
+
+        <!--GATEWAYS LIST-->
+        <ul div ng-hide="braintreedivVisible||ewaydivVisible||ezidebitdivVisible||paypaldivVisible||pindivVisible||stripedivVisible||westpacdivVisible" class="gateways_list cf">
+
+            <!--BRAINTREE-->
+            <li id="eighthStop" class="gateway_list_item large-3 columns">
+                <a ng-hide="braintreedivVisible" ng-click="braintreedivVisible = true">
+                    <img src="./images/braintree.png">
+                </a>
+                <button ng-hide="braintreedivVisible" ng-click="braintreedivVisible = true;cleandiv()"  class="small button border_radius green">Connect</button>
+            </li>
+
+            <!--EWAY-->
+            <li class="gateway_list_item large-3 columns">
+                <a ng-hide="ewaydivVisible" ng-click="ewaydivVisible = true">
+                    <img src="./images/eway.png">
+                </a>
+                <button ng-hide="ewaydivVisible" ng-click="ewaydivVisible = true;cleandiv()"  class="small button border_radius green">Connect</button>
+            </li>
+
+            <!--EZIDEBIT-->
+            <li class="gateway_list_item large-3 columns">
+                <a ng-hide="ezidebitdivVisible" ng-click="ezidebitdivVisible = true">
+                    <img src="./images/ezidebit.png">
+                </a>
+                <button ng-hide="ezidebitdivVisible" ng-click="ezidebitdivVisible = true;cleandiv()"  class="small button border_radius green">Connect</button>
+            </li>
+
+            <!--PAYPAL-->
+            <li class="gateway_list_item large-3 columns">
+                <a ng-hide="paypaldivVisible" ng-click="paypaldivVisible = true">
+                    <img src="./images/paypal.png">
+                </a>
+                <button ng-hide="paypaldivVisible" ng-click="paypaldivVisible = true;cleandiv()"  class="small button border_radius green">Connect</button>
+            </li>
+
+            <!--PIN-->
+            <li class="gateway_list_item large-3 columns">
+                <a ng-hide="pindivVisible" ng-click="pindivVisible = true">
+                    <img src="./images/pin.png">
+                </a>
+
+                <button ng-hide="pindivVisible" ng-click="pindivVisible = true;cleandiv()"  class="small button border_radius green">Connect</button>
+            </li>
+
+            <!--STRIPE-->
+            <li class="gateway_list_item large-3 columns">
+                <a ng-hide="stripedivVisible" ng-click="stripedivVisible = true">
+                    <img src="./images/stripe.png">
+                </a>
+                <button ng-hide="stripedivVisible" ng-click="stripedivVisible = true;cleandiv()"  class="small button border_radius green">Connect</button>
+            </li>
+
+            <!--WESTPAC-->
+            <li class="gateway_list_item large-3 columns end">
+                <a ng-hide="westpacdivVisible" ng-click="westpacdivVisible = true">
+                    <img src="./images/westpac.png">
+                </a>
+                <button ng-hide="westpacdivVisible" ng-click="westpacdivVisible = true;cleandiv()"  class="small button border_radius green">Connect</button>
+            </li>
+
+        </ul>
+
+        <!--CONNECTION divS-->
+
+        <!--BRAINTREE-->
+        <div ng-show="braintreedivVisible" class="details_block">
+            <p class="details_title">Connect your BrainTree gateway</p>
+            <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+
+            <form>
+                <div class="large-12 columns details_spacer_block">
+
+                    <div class="spacer_box cf">
+                        <p class="details_title small">Gateway information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway label
+                                    <input type="text" ng-model="gatename"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway merchant
+                                    <input type="text" ng-model="merchant"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway public key
+                                    <input type="text" ng-model="username"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway private key
+                                    <input type="text" ng-model="password"/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer_box last cf">
+                        <p class="details_title small">Additional information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <i class="select_arrow fa fa-caret-down"></i>
+                                <label>
+                                    Select environment mode
+                                    <select ng-model="mode">
+                                        <option value="test" ng-selected="true">Sandbox</option>
+                                        <option value="life">Production</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--buttons-->
+                <div class="btns_row btns_without_mrgn cf">
+                    <a ng-click="addnewgateways('Brain')" class="small button border_radius green">Connect</a>
+                    <a ng-click="braintreedivVisible = false" class="small button border_radius green cancel_btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+
+        <!--EWAY-->
+        <div ng-show="ewaydivVisible" class="details_block">
+            <p class="details_title">Connect your Eway gateway</p>
+            <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+
+            <form>
+                <div class="large-12 columns details_spacer_block">
+
+                    <div class="spacer_box cf">
+                        <p class="details_title small">Gateway information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway label
+                                    <input type="text" ng-model="gatename"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway public key
+                                    <input type="text" ng-model="username"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway password
+                                    <input type="text" ng-model="password"/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer_box last cf">
+                        <p class="details_title small">Additional information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <i class="select_arrow fa fa-caret-down"></i>
+                                <label>
+                                    Select environment mode
+                                    <select ng-model="mode">
+                                        <option value="test" ng-selected="true">Sandbox</option>
+                                        <option value="life">Production</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--buttons-->
+                <div class="btns_row btns_without_mrgn cf">
+                    <a ng-click="addnewgateways('Eway')" class="small button border_radius green">Connect</a>
+                    <a ng-click="ewaydivVisible=false" class="small button border_radius green cancel_btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+
+        <!--EZIDEBIT-->
+        <div ng-show="ezidebitdivVisible" class="details_block">
+            <p class="details_title">Connect your EziDebit gateway</p>
+            <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+
+            <form>
+                <div class="large-12 columns details_spacer_block">
+
+                    <div class="spacer_box cf">
+                        <p class="details_title small">Gateway information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway label
+                                    <input type="text" ng-model="gatename"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway public key
+                                    <input type="text" ng-model="username"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway digital key
+                                    <input type="text" ng-model="password"/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer_box last cf">
+                        <p class="details_title small">Additional information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <i class="select_arrow fa fa-caret-down"></i>
+                                <label>
+                                    Select environment mode
+                                    <select ng-model="mode">
+                                        <option value="test" ng-selected="true">Sandbox</option>
+                                        <option value="life">Production</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--buttons-->
+                <div class="btns_row btns_without_mrgn cf">
+                    <a ng-click="addnewgateways('Ezidebit')" class="small button border_radius green">Connect</a>
+                    <a ng-click="ezidebitdivVisible=false" class="small button border_radius green cancel_btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+
+        <!--PAYPAL-->
+        <div ng-show="paypaldivVisible" class="details_block">
+            <p class="details_title">Connect your PayPal gateway</p>
+            <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+
+            <form>
+                <div class="large-12 columns details_spacer_block">
+
+                    <div class="spacer_box cf">
+                        <p class="details_title small">Gateway information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway label
+                                    <input type="text" ng-model="gatename"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway client ID
+                                    <input type="text" ng-model="username"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway secret key
+                                    <input type="text" ng-model="password"/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer_box last cf">
+                        <p class="details_title small">Additional information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <i class="select_arrow fa fa-caret-down"></i>
+                                <label>
+                                    Select environment mode
+                                    <select ng-model="mode">
+                                        <option value="test" ng-selected="true">Sandbox</option>
+                                        <option value="life">Production</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--buttons-->
+                <div class="btns_row btns_without_mrgn cf">
+                    <a ng-click="addnewgateways('Paypal')" class="small button border_radius green">Connect</a>
+                    <a ng-click="paypaldivVisible=false" class="small button border_radius green cancel_btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+
+        <!--PIN-->
+        <div ng-show="pindivVisible" class="details_block">
+            <p class="details_title">Connect your Pin gateway</p>
+            <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+
+            <form>
+                <div class="large-12 columns details_spacer_block">
+
+                    <div class="spacer_box cf">
+                        <p class="details_title small">Gateway information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway label
+                                    <input type="text" ng-model="gatename"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway secret key
+                                    <input type="text" ng-model="username"/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer_box last cf">
+                        <p class="details_title small">Additional information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <i class="select_arrow fa fa-caret-down"></i>
+                                <label>
+                                    Select environment mode
+                                    <select ng-model="mode">
+                                        <option value="test" ng-selected="true">Sandbox</option>
+                                        <option value="life">Production</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--buttons-->
+                <div class="btns_row btns_without_mrgn cf">
+                    <a ng-click="addnewgateways('Pin')" class="small button border_radius green">Connect</a>
+                    <a ng-click="pindivVisible=false" class="small button border_radius green cancel_btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+
+        <!--STRIPE-->
+        <div ng-show="stripedivVisible" class="details_block">
+            <p class="details_title">Connect your Stripe gateway</p>
+            <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+
+            <form>
+                <div class="large-12 columns details_spacer_block">
+
+                    <div class="spacer_box cf">
+                        <p class="details_title small">Gateway information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway label
+                                    <input type="text" ng-model="gatename"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway secret key
+                                    <input type="text" ng-model="username"/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer_box last cf">
+                        <p class="details_title small">Additional information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <i class="select_arrow fa fa-caret-down"></i>
+                                <label>
+                                    Select environment mode
+                                    <select ng-model="mode">
+                                        <option value="test" ng-selected="true">Sandbox</option>
+                                        <option value="life">Production</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--buttons-->
+                <div class="btns_row btns_without_mrgn cf">
+                    <a ng-click="addnewgateways('Stripe')" class="small button border_radius green">Connect</a>
+                    <a ng-click="stripedivVisible=false" class="small button border_radius green cancel_btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+
+        <!--WESTPAC-->
+        <div ng-show="westpacdivVisible" class="details_block">
+            <p class="details_title">Connect your Westpac gateway</p>
+            <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+
+            <form>
+                <div class="large-12 columns details_spacer_block">
+
+                    <div class="spacer_box cf">
+                        <p class="details_title small">Gateway information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway label
+                                    <input type="text" ng-model="gatename"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway merchant
+                                    <input type="text" ng-model="merchant"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway username
+                                    <input type="text" ng-model="username"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Gateway password
+                                    <input type="text" ng-model="password"/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer_box last cf">
+                        <p class="details_title small">Additional information</p>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <i class="select_arrow fa fa-caret-down"></i>
+                                <label>
+                                    Select environment mode
+                                    <select ng-model="mode">
+                                        <option value="test" ng-selected="true">Sandbox</option>
+                                        <option value="life">Production</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Certificate passphrase
+                                    <input type="text" ng-model="certpass"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns left_oriented end">
+                                <label>
+                                    Certificate ID
+                                    <input type="text" ng-model="certid"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row drop_box_wrp">
+                            <p class="drop_box_label">Drop file</p>
+                            <div ngf-drop ngf-select ng-model="files" class="drop-box large-3 columns left_oriented end"
+                                 ngf-drag-over-class="dragover" ngf-allow-dir="true" ngf-accept="'application/x-pkcs12'">
+                                <span>Drop your PFX certificate here or click to upload</span>
+                            </div>
+                            <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--buttons-->
+                <div class="btns_row btns_without_mrgn cf">
+                    <a ng-click="addnewgateways('Payway')" class="small button border_radius green">Connect</a>
+                    <a ng-click="westpacdivVisible=false" class="small button border_radius green cancel_btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--MESSAGE-->
+<div  class={{class}}
+     clean-tmp-text="action"
+     duration="1000"></div>

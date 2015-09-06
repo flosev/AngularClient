@@ -1,0 +1,72 @@
+<div class="content " id="panel1">
+<table class="standart_table" id="report">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th class="not_mobile_cell">Date</th>
+        <th class="not_mobile_cell">Gateway</th>
+        <th class="not_mobile_cell">Status</th>
+        <th class="centered_cell">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Olena Shpilevska</td>
+        <td>AUD 100.00</td>
+        <td class="not_mobile_cell">27 Mar 2015</td>
+        <td class="not_mobile_cell">PinPayments</td>
+        <td class="not_mobile_cell">Complete</td>
+        <td class="centered_cell">
+            <button ng-hide="ctrl.isSearchFormVisible" ng-click="ctrl.isSearchFormVisible = true"  class="small button border_radius green">Details</button>
+            <!--<a ng-href="#/payments" class="small button border_radius green">Details</a>-->
+        </td>
+    </tr>
+    <tr class="details_wrap">
+        <td class="details_block" colspan="6">
+            <div class="mobile_block">
+                <p>Date: 27 Mar 2015</p>
+                <p>Gateway: PinPayments</p>
+                <p>Status: Complete</p>
+            </div>
+            <div>
+                <p class="details_title">Transactions</p>
+                <p>{ <br />
+                    "_id": "5527a5aa28da6e833275bf74",<br />
+                    "created_at": "2015-04-10T10:27:54.529Z",<br />
+                    "schedule_id": "5513df2243daf16f355ab02f",<br />
+                    "payment_id": "5513df2243daf16f355ab02d",<br />
+                    "amount": "1000.00",<br />
+                    "currency": "AUD",<br />
+                    "firstname": "Olena",<br />
+                    "lastname": "Shpilevska",<br />
+                    "email": "oshpilevska@gmail.com",<br />
+                    "gatewaytype": "Pin",<br />
+                    "gatewayname": "PinPayments",<br />
+                    "one_off": false,<br />
+                    "status": "complete"<br />
+                    }</p>
+            </div>
+            <div>
+                <p class="details_title">Gateway Request/Response</p>
+                <p>{ <br />
+                    "_id": "5527a5aa28da6e833275bf74",<br />
+                    "created_at": "2015-04-10T10:27:54.529Z",<br />
+                    "schedule_id": "5513df2243daf16f355ab02f",<br />
+                    "payment_id": "5513df2243daf16f355ab02d",<br />
+                    "amount": "1000.00",<br />
+                    "currency": "AUD",<br />
+                    "firstname": "Olena",<br />
+                    "lastname": "Shpilevska",<br />
+                    "email": "oshpilevska@gmail.com",<br />
+                    "gatewaytype": "Pin",<br />
+                    "gatewayname": "PinPayments",<br />
+                    "one_off": false,<br />
+                    "status": "complete"<br />
+                    }</p>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>

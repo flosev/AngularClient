@@ -1,0 +1,507 @@
+<div class="tabs_box">
+    <ul class="tabs">
+        <li class="tab-title"><a href="#/payments/charges">Charges</a></li>
+        <li class="tab-title"><a href="#/payments/subscriptions">Subscriptions</a></li>
+        <li class="tab-title active"><a href="#/payments/addnew">Add new</a></li>
+    </ul>
+
+    <!--ADD NEW PAYMENT FORM-->
+    <div class="tabs-content border_radius">
+        <form name="addPaymentForm" class="stylized-form">
+
+            <!--ADD NEW SUBSCRIPTION-->
+            <div class="details_block cf">
+                <p class="details_title">Add new one-off payment or subscription</p>
+
+                <p class="details_subtitle">This form can be used to process one-off payments or initiate subscriptions.</p>
+
+                <div class="details_spacer_block">
+
+                    <!--PERSONAL INFO-->
+                    <div class="large-12 columns left_oriented spacer_box cf">
+                        <ng-form name="personal" class="stylized-form">
+                            <p class="details_title small">Personal information</p>
+
+                            <div class="row">
+                                <div class="large-3 columns left_oriented">
+                                    <label>
+                                        First name
+                                        <input type="text"
+                                               class="form-control tip-left"
+                                               id="first_name"
+                                               name="first_name"
+                                               ng-model="first_name"
+                                               ng-maxlength="50"
+                                               validate-tooltip
+                                               error-text="{
+                                                    maxlength: 'Max length 50 characters'
+                                               }"/>
+                                    </label>
+                                </div>
+                                <div class="large-3 columns left_oriented">
+                                    <label>
+                                        Last name
+                                        <input type="text"
+                                               class="form-control tip-top"
+                                               id="last_name"
+                                               name="last_name"
+                                               ng-model="last_name"
+                                               ng-maxlength="50"
+                                               validate-tooltip
+                                               error-text="{
+                                                    maxlength: 'Max length 50 characters'
+                                               }"/>
+                                    </label>
+                                </div>
+                                <div class="large-3 columns left_oriented end">
+                                    <label>
+                                        Email
+                                        <input type="email"
+                                               class="form-control tip-right"
+                                               id="email"
+                                               name="email"
+                                               ng-model="email"
+                                               ng-pattern="REGEX.EMAIL"
+                                               validate-tooltip
+                                               error-text="{
+                                                    pattern: 'Please input a valid email address'
+                                               }"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </ng-form>
+                    </div>
+
+                    <!--ADDRESS-->
+                    <div class="large-12 columns left_oriented spacer_box cf">
+                        <ng-form name="address" class="stylized-form">
+                            <p class="details_title small">Address</p>
+
+                            <div class="row">
+                                <div class="large-3 columns left_oriented">
+                                    <label>
+                                        Address line 1
+                                        <input type="text"
+                                               class="form-control tip-left"
+                                               id="address_line1"
+                                               name="address_line1"
+                                               ng-model="address_line1"
+                                               ng-minlength="3"
+                                               ng-maxlength="50"
+                                               validate-tooltip
+                                               error-text="{
+                                                minlength: 'Min length 3 characters',
+                                                maxlength: 'Max length 50 characters'
+                                           }"/>
+                                    </label>
+                                </div>
+                                <div class="large-3 columns left_oriented">
+                                    <label>
+                                        Address line 2
+                                        <input type="text"
+                                               class="form-control tip-top"
+                                               id="address_line2"
+                                               name="address_line2"
+                                               ng-model="address_line2"
+                                               ng-minlength="3"
+                                               ng-maxlength="50"
+                                               validate-tooltip
+                                               error-text="{
+                                                minlength: 'Min length 3 characters',
+                                                maxlength: 'Max length 50 characters',
+                                           }"/>
+                                    </label>
+                                </div>
+                                <div class="large-3 columns left_oriented end">
+                                    <label>
+                                        City
+                                        <input type="text"
+                                               class="form-control tip-right"
+                                               id="city"
+                                               ng-model="city"
+                                               name="city"
+                                               ng-minlength="3"
+                                               ng-maxlength="50"
+                                               validate-tooltip
+                                               error-text="{
+                                                minlength: 'Min length 3 characters',
+                                                maxlength: 'Max length 50 characters'
+                                           }"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-3 columns left_oriented">
+                                    <label>
+                                        State
+                                        <input type="text"
+                                               class="form-control tip-left"
+                                               id="state"
+                                               ng-model="state"
+                                               name="state"
+                                               ng-minlength="3"
+                                               ng-maxlength="50"
+                                               validate-tooltip
+                                               error-text="{
+                                                minlength: 'Min length 3 characters',
+                                                maxlength: 'Max length 50 characters',
+                                           }"/>
+                                    </label>
+                                </div>
+                                <div class="large-3 columns left_oriented">
+                                    <i class="select_arrow fa fa-caret-down"></i>
+                                    <label>
+                                        Country
+                                        <select ng-model="country" ng-init="country='Australia'">
+                                            <option ng-selected="true">Australia</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="large-3 columns left_oriented end">
+                                    <label>
+                                        Postcode
+                                        <input type="text"
+                                               class="form-control tip-right"
+                                               id="postcode"
+                                               ng-model="postcode"
+                                               name="postcode"
+                                               ng-pattern="REGEX.NUMBER"
+                                               ng-minlength="3"
+                                               ng-maxlength="50"
+                                               validate-tooltip
+                                               error-text="{
+                                                minlength: 'Min length 3 characters',
+                                                maxlength: 'Max length 50 characters',
+                                           }"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </ng-form>
+                    </div>
+
+                    <!--PAYMENT DETAILS-->
+                    <div class="large-12 columns left_oriented spacer_box last cf">
+                        <ng-form name="payment" class="stylized-form">
+                            <p class="details_title small">Payment details</p>
+
+                            <div class="row">
+                                <div class="large-3 columns left_oriented">
+                                    <i class="select_arrow fa fa-caret-down"></i>
+                                    <label>
+                                        Gateway
+                                        <select ng-model="gateway_id"
+                                                ng-options="gateway._id as gateway.name for gateway in myTails"
+                                                required
+                                                name="gateway">
+                                            <option value="">
+                                                Choose Gateway
+                                            </option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="large-3 columns left_oriented end">
+                                    <i class="select_arrow fa fa-caret-down"></i>
+                                    <label>
+                                        Interval
+                                        <select ng-model="interval" ng-init="interval='one-off'">
+                                            <option ng-selected="true" value="one-off">One-off</option>
+                                            <option value="day">Day</option>
+                                            <option value="week">Week</option>
+                                            <option value="month">Month</option>
+                                            <option value="year">Year</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row" ng-controller="billing.DetailCtrl">
+                                <div ng-show="subsFormVisible" class="large-3 columns left_oriented">
+                                    <label>
+                                        Frequency
+                                        <input type="text" class="form-control" id="frequency"
+                                               ng-model="$parent.frequency">
+                                    </label>
+                                </div>
+                                <div ng-show="subsFormVisible" class="large-3 columns left_oriented">
+                                    <label>
+                                        Start date (YYYY-MM-DD)
+                                        <input type="text" class="form-control" ng-model="$parent.start_date"
+                                               my-Datepicker>
+
+                                    </label>
+                                </div>
+                                <div ng-show="subsFormVisible" class="large-3 columns left_oriented end">
+                                    <label>
+                                        End date (YYYY-MM-DD)
+                                        <input type="text" class="form-control" ng-model="$parent.end_date"
+                                               my-Datepicker>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-3 columns left_oriented">
+                                    <label>
+                                        Amount
+                                        <input type="text"
+                                               class="form-control tip-left"
+                                               id="amount"
+                                               name="amount"
+                                               ng-model="amount"
+                                               ng-pattern="REGEX.FLOAT_NOT_NULL"
+                                               required
+                                               validate-tooltip
+                                               error-text="{
+                                                pattern: 'Amount must be positive',
+                                                required: 'Enter amount'
+                                           }"/>
+                                    </label>
+                                </div>
+                                <div class="large-3 columns left_oriented end">
+                                    <i class="select_arrow fa fa-caret-down"></i>
+                                    <label>
+                                        Currency
+                                        <select ng-model="currency" ng-init="currency='AUD'">
+                                            <option ng-selected="true">AUD</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </ng-form>
+                    </div>
+                </div>
+            </div>
+
+            <!--CARD & BSB INFO-->
+            <div class="details_block cf">
+                <p class="details_title">Payment information</p>
+
+                <!--SUBTABS-->
+                <div class="tabs_box subtabs large-6 columns left_oriented mobile_fullWidth_block cf">
+                    <ul class="tabs" data-tab>
+                        <li class="tab-title first active" ng-hide="bsbFormVisible"><a>Credit card</a></li>
+                        <li class="tab-title first" ng-show="bsbFormVisible"
+                            ng-click="bsbFormVisible=false; bsbtabFormVisible=true"><a>Credit card</a></li>
+                        <li class="tab-title" ng-show="bsbtabFormVisible"
+                            ng-click="bsbFormVisible=true;bsbtabFormVisible=false"><a>BSB account</a></li>
+                        <li class="tab-title active" ng-show="bsbFormVisible"><a>BSB account</a></li>
+                    </ul>
+
+                    <div class="tabs-content card_bsb">
+
+                        <ng-form name="card" class="stylized-form">
+                            <!--CARD-->
+                            <div ng-hide="bsbFormVisible" class="content active spacer_box" id="credit">
+
+                                <!--card name-->
+                                <div class="row">
+                                    <div class="large-8 columns left_oriented end">
+                                        <label>
+                                            Credit card name
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="card_name"
+                                                   name="card_name"
+                                                   placeholder="Name on card"
+                                                   ng-model="card_name"
+                                                   ng-maxlength="50"
+                                                   required
+                                                   validate-tooltip
+                                                   error-text="{
+                                                        maxlength: 'Max length 50 characters',
+                                                        required: 'Enter name on card'
+                                                   }"/>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!--card number-->
+                                <div class="row">
+                                    <div class="large-8 columns left_oriented end">
+                                        <label>
+                                            Credit card number
+                                            <input type="text"
+                                                   name="cardnumber"
+                                                   placeholder="Card number"
+                                                   ng-model="cardnumber"
+                                                   ng-pattern="REGEX.NUMBER"
+                                                   ng-minlength="13"
+                                                   ng-maxlength="19"
+                                                   required
+                                                   validate-tooltip
+                                                   error-text="{
+                                                       minlength: 'Min length 13 characters',
+                                                       maxlength: 'Max length 19 characters',
+                                                       pattern: 'Credit card number must be numeric',
+                                                       required: 'Enter credit card number'
+                                                   }"/>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!--expiration month-->
+                                <div class="row">
+                                    <div class="large-4 columns left_oriented">
+                                        <label>
+                                            Expiration month
+                                            <select ng-model="expire_month" ng-init="expire_month='01'">
+                                                <option ng-selected="true">01</option>
+                                                <option>02</option>
+                                                <option>03</option>
+                                                <option>04</option>
+                                                <option>05</option>
+                                                <option>06</option>
+                                                <option>07</option>
+                                                <option>08</option>
+                                                <option>09</option>
+                                                <option>10</option>
+                                                <option>11</option>
+                                                <option>12</option>
+                                            </select>
+                                        </label>
+                                    </div>
+
+                                    <!--expiration year-->
+                                    <div class="large-4 columns left_oriented">
+                                        <label>
+                                            Expiration year
+                                            <select ng-model="expire_year" ng-init="expire_year='2015'">
+                                                <option ng-selected="true">2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>
+                                                <option>2020</option>
+                                                <option>2021</option>
+                                                <option>2022</option>
+                                            </select>
+                                        </label>
+                                    </div>
+
+                                    <!--ccv-->
+                                    <div class="large-4 columns left_oriented end">
+                                        <label>
+                                            CCV
+                                            <input type="text"
+                                                   placeholder="CCV"
+                                                   name="cvv"
+                                                   ng-model="ccv"
+                                                   ng-pattern="REGEX.NUMBER"
+                                                   ng-minlength="3"
+                                                   ng-maxlength="4"
+                                                   validate-tooltip
+                                                   error-text="{
+                                                       pattern: 'Expiration year should be correct',
+                                                       minlength: 'Min length 3 characters',
+                                                       maxlength: 'Max length 4 characters'
+                                                   }"/>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-form>
+
+                        <ng-form name="cardBsb" class="stylized-form">
+                            <!--BSB-->
+                            <div ng-show="bsbFormVisible" class="content active spacer_box">
+
+                                <!--account name-->
+                                <div class="row">
+                                    <div class="large-6 columns left_oriented end">
+                                        <label>
+                                            Bank account name
+                                            <input type="text"
+                                                   name="account_name"
+                                                   placeholder="Bank account name"
+                                                   ng-model="account_name"
+                                                   required
+                                                   validate-tooltip
+                                                   error-text="{
+                                                       required: 'Enter bank account name'
+                                                   }" />
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!--account number-->
+                                <div class="row">
+                                    <div class="large-6 columns left_oriented end">
+                                        <label>
+                                            Bank account number
+                                            <input type="text"
+                                                   name="account_number"
+                                                   placeholder="Bank account number"
+                                                   ng-model="account_number"
+                                                   required
+                                                   validate-tooltip
+                                                   error-text="{
+                                                       required: 'Enter bank account number'
+                                                   }" />
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!--BSB number-->
+                                <div class="row">
+                                    <div class="large-6 columns left_oriented end">
+                                        <label>
+                                            Bank state branch (BSB) number
+                                            <input type="text"
+                                                   name="account_bsb"
+                                                   placeholder="BSB number"
+                                                   ng-model="account_bsb"
+                                                   required
+                                                   validate-tooltip
+                                                   error-text="{
+                                                       required: 'Enter BSB number'
+                                                   }" />
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </ng-form>
+                    </div>
+                </div>
+            </div>
+
+            <!--BUTTON-->
+            <div>
+                <div class="btns_row btns_without_mrgn">
+                    <button type="button"
+                            ng-click="addnewsubscriptions()"
+                            class="small button border_radius green"
+                            ng-disabled="!resolved || addPaymentForm.personal.$invalid ||
+                                            addPaymentForm.address.$invalid ||
+                                            addPaymentForm.payment.$invalid ||
+                                            (selectedGatewayTypeEquivalent(GATEWAY_TYPE_EZIDEBIT) && !(addPaymentForm.card.$valid || addPaymentForm.cardBsb.$valid)) ||
+                                            (!selectedGatewayTypeEquivalent(GATEWAY_TYPE_EZIDEBIT) && addPaymentForm.card.$invalid)
+                                            ">
+                        <span ng-hide="addPaymentForm.personal.$invalid ||
+                                        addPaymentForm.address.$invalid ||
+                                        addPaymentForm.payment.$invalid ||
+                                        (selectedGatewayTypeEquivalent(GATEWAY_TYPE_EZIDEBIT) && !(addPaymentForm.card.$valid || addPaymentForm.cardBsb.$valid)) ||
+                                        (!selectedGatewayTypeEquivalent(GATEWAY_TYPE_EZIDEBIT) && addPaymentForm.card.$invalid)
+                                        ">
+                            Submit
+                        </span>
+                        <span ng-show="addPaymentForm.personal.$invalid ||
+                                        addPaymentForm.address.$invalid ||
+                                        addPaymentForm.payment.$invalid ||
+                                        (selectedGatewayTypeEquivalent(GATEWAY_TYPE_EZIDEBIT) && !(addPaymentForm.card.$valid || addPaymentForm.cardBsb.$valid)) ||
+                                        (!selectedGatewayTypeEquivalent(GATEWAY_TYPE_EZIDEBIT) && addPaymentForm.card.$invalid)
+                                        ">
+                            Fill in all required fields
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<!--MESSAGE-->
+<div class={{class}}
+     clean-tmp-text="action"
+     duration="1000">
+</div>

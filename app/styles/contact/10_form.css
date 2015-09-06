@@ -1,0 +1,59 @@
+.stylized-form input,
+.stylized-form textarea,
+.stylized-form select {
+    border: 1px solid #dddddd;
+}
+.stylized-form input.ng-invalid.ng-dirty,
+.stylized-form textarea.ng-invalid.ng-dirty
+.stylized-form select.ng-invalid.ng-dirty {
+    border-color: #FA787E !important;
+    -webkit-transition: border 1.5s ease-out;
+    -moz-transition: border 1.5s ease-out;
+    -o-transition: border 1.5s ease-out;
+    transition: border 1.5s ease-out;
+}
+
+.stylized-form input.ng-valid.ng-dirty,
+.stylized-form textarea.ng-valid.ng-dirty,
+.stylized-form select.ng-valid.ng-dirty {
+    border-color: #b4df37 !important;
+    -webkit-transition: border 1.5s ease-out;
+    -moz-transition: border 1.5s ease-out;
+    -o-transition: border 1.5s ease-out;
+    transition: border 1.5s ease-out;
+}
+
+.stylized-form button {
+    -webkit-transition: opacity 1.5s ease-out;
+    -moz-transition: opacity 1.5s ease-out;
+    -o-transition: opacity 1.5s ease-out;
+    transition: opacity 1.5s ease-out;
+}
+
+.stylized-form button[disabled="disabled"],
+.stylized-form button[disabled="disabled"]:hover {
+    opacity: 0.2 !important;
+    -webkit-transition: opacity 1.5s ease-out;
+    -moz-transition: opacity 1.5s ease-out;
+    -o-transition: opacity 1.5s ease-out;
+    transition: opacity 1.5s ease-out;
+}
+.drop_box_wrp {
+    color: #888888;
+    font-family: 'ralewaysemibold';
+    font-size: 0.8rem;
+    line-height: 1rem;
+    margin-top: 0.5rem !important;
+}
+.drop_box_label {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+.drop-box span {
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.7rem;
+}

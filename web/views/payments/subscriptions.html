@@ -1,0 +1,339 @@
+<div class="tabs_box">
+    <ul class="tabs">
+        <li class="tab-title"><a href="#/payments/charges">Charges</a></li>
+        <li class="tab-title active"><a href="#/payments/subscriptions">Subscriptions</a></li>
+        <li class="tab-title"><a href="#/payments/addnew">Add new</a></li>
+    </ul>
+
+    <!--SUBSCRIPTIONS-->
+    <div class="tabs-content border_radius">
+        <div class="content active" id="panel3">
+        
+            <p class="details_title">Subscriptions</p>
+            <p class="details_subtitle">See all your subscriptions and their details here.</p>
+
+            <button class="button grey small download"
+                    type="button"
+                    ng-click="saveToCsv()"
+                    ng-disabled="!subs.length">
+                <span>Download selection</span>
+                <i class="fa fa-download"></i>
+            </button>
+
+            <!--SEARCH PANEL-->
+            <div class="search_panel cf" ng-show="!isSelectedById()">
+                <form class="large-4 columns left_oriented">
+                    <label>
+                        <span>Search:</span>
+                        <input type="text" ng-model="searchword" id="search" class="form-control">
+                    </label>
+                </form>
+                <form class="large-4 columns left_oriented">
+                    <i class="select_arrow fa fa-caret-down"></i>
+                    <label>
+                        <span>Sort by:</span>
+                        <select ng-model="orderProp">
+                            <option value="created_at" ng-selected="true">Created</option>
+                            <option value="customer.last_name">Last Name</option>
+                            <option value="amount">Amount</option>
+                            <option value="schedule.next_assessment">Next Payment</option>
+                            <option value="status">Status</option>
+                        </select>
+                    </label>
+                </form>
+                <form class="large-4 columns left_oriented">
+                    <label>
+                        <span>Items per page:</span>
+                        <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+                    </label>
+                </form>
+            </div>
+
+
+            <!--EDIT CUSTOMERS DETAILS-->
+
+            <!--NO SUBSCRIPTIONS MSG-->
+            <p ng-if="emptyMessage" class="first_msg">No subscriptions yet, but don't worry your new customers will handle that soon.</p>
+
+
+            <!--TABLE-->   
+            <table class="standart_table" id="report3">
+
+                <thead ng-if="!emptyMessage">
+                    <tr>
+                        <th>Name</th>
+                        <th class="not_mobile_cell">Amount</th>
+                        <th class="not_mobile_cell">Date of creation</th>
+                        <th class="not_mobile_cell">Next payment</th>
+                        <th class="not_mobile_cell">Status</th>
+                        <th class="right_align_cell">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody dir-paginate="data in subs | itemsPerPage: pageSize" total-items="totalSubs" current-page="currentPage">
+                    <tr>
+                        <!--name-->
+                        <td>{{data.customer.first_name}}  {{data.customer.last_name}}</td>
+                        <!--amount-->
+                        <td class="not_mobile_cell">${{data.amount}}</td>
+                        <!--created-->
+                        <td class="not_mobile_cell">{{data.created_at  | moment:'LLL'}}</td>
+                        <!--next payment-->
+                        <td class="not_mobile_cell">{{data.schedule.next_assessment  | moment:'LLL'}}</td>
+                        <!--status-->
+                        <td ng-if="data.status=='active'" class="active not_mobile_cell"><span>{{data.status}}</span></td>
+                        <td ng-if="data.status=='deleted'" class="deleted not_mobile_cell"><span>{{data.status}}</span></td>
+                        <td ng-if="data.status=='expired'" class="expired not_mobile_cell"><span>{{data.status}}</span></td>
+                        <td ng-if="data.status=='failed'" class="failed not_mobile_cell"><span>{{data.status}}</span></td>
+                        <td ng-if="data.status=='inprogress'" class="inprogress not_mobile_cell"><span>{{data.status}}</span></td>
+                        <!--actions-->
+                        <td class="right_align_cell">
+                            <a type="button"
+                                    class="table_link"
+                                    ng-click="showLink($index)">
+                                Get link
+                            </a>
+                            <a ng-hide="isExtendedSubscription($index)"
+                               ng-click="expandSubscription($index)"
+                               class="table_link">
+                                Details
+                            </a>
+                            <a ng-show="isExtendedSubscription($index)"
+                               ng-click="collapseSubscriptions()"
+                               class="table_link">
+                                Close
+                            </a>
+                            <div class="get_link_box">
+                                <input type="url" value="{{getLink($index)}}" ng-show="isShowedLink($index)" ng-click-select />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!--DETAILS TABLE-->
+                    <tr ng-show="isExtendedSubscription($index) && isShowedTable(TABLE_TYPE.EDIT)" class="grey">
+                        <td class="details_block" colspan="5">
+                            <div class="large-12 columns left_oriented spacer_box last cf">
+                                <p class="details_title small">Edit current subscription</p>
+                                <form>
+                                    <div class="row">
+                                        <div class="large-3 columns left_oriented">
+                                            <label>
+                                                Amount
+                                                <input type="text" placeholder="{{data.amount}}" ng-model="amount"/>
+                                            </label>
+                                        </div>
+                                        <div class="large-3 columns left_oriented end">
+                                            <i class="select_arrow fa fa-caret-down"></i>
+                                            <label>
+                                                Interval(current={{data.schedule.interval}})
+                                                <select  ng-model="interval" ng-init="interval='day'">
+                                                    <option value="day" ng-selected="true">Day</option>
+                                                    <option value="week">Week</option>
+                                                    <option value="month">Month</option>
+                                                    <option value="year">Year</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="large-3 columns left_oriented">
+                                            <label>
+                                                Frequency ({{attent}})
+                                                <input type="text" placeholder="{{data.schedule.frequency}}" ng-model="frequency" ng-change="attent = 'If you want to change Frequency, please change Start date as well'"/>
+                                            </label>
+                                        </div>
+                                        <div class="large-3 columns left_oriented end">
+                                            <label>
+                                                Start date (YYYY-MM-DD)
+                                                <input type="text" class="form-control" my-Datepicker placeholder="{{data.schedule.start_date | moment:'YYYY-MM-DD'}}" ng-model="start_date">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="large-3 columns left_oriented">
+                                            <label>
+                                                End date (YYYY-MM-DD)
+                                                <input type="text" class="form-control" my-Datepicker placeholder="{{data.schedule.end_date | moment:'YYYY-MM-DD'}}" ng-model="end_date">
+                                                </label>
+                                        </div>
+                                        <div class="large-3 columns left_oriented end">
+                                            <label>
+                                                Description
+                                                <input type="text" placeholder="{{data.description}}" ng-model="description"/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="large-3 columns left_oriented end">
+                                            <label>
+                                                Reference
+                                                <input type="text" placeholder="{{data.reference}}" ng-model="reference"/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!--action-->
+                                    <!--<div class={{class}}>{{action}}</div>-->
+                                    <div class={{class}}
+                                         clean-tmp-text="action"
+                                         duration="1000"></div>
+
+                                    <!--BUTTONS-->
+                                    <div class="btns_row cf">
+                                        <a ng-click="editSubscription(data._id)"
+                                           class="small button border_radius green button_left_oriented">
+                                            Update
+                                        </a>
+
+                                        <a ng-click="showTable(TABLE_TYPE.DETAIL)"
+                                           class="small button border_radius button_left_oriented green">
+                                            Cancel
+                                        </a>
+
+                                        <a class="small button green button_left_oriented" href="#/payments/subscriptions" ng-if="isSelectedById()">
+                                            Back to subscriptions list
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!--DETAILS TABLE-->
+                    <tr ng-show="isExtendedSubscription($index) && isShowedTable(TABLE_TYPE.DETAIL)" class="grey">
+                        <td class="details_block" colspan="6">
+
+                            <!--MOBILE BLOCK-->
+                            <div class="mobile_block">
+                                <p><span>Amount:</span> ${{data.amount}}</p>
+                                <p><span>Next payment:</span> {{data.schedule.next_assessment  | moment:'LLL'}}</p>
+                                <p><span>Status:</span> {{data.status}}</p>
+
+                                <p class="mobile_subtitle">Customer Information</p>
+                                <p><span>First name:</span> {{data.customer.first_name}}</p>
+                                <p><span>Last name:</span> {{data.customer.last_name}}</p>
+                                <p><span>Email:</span> {{data.customer.email}}</p>
+                                <p><span>Reference:</span> {{data.reference}}</p>
+
+                                <p class="mobile_subtitle">Schedule</p>
+                                <p><span>Interval:</span> each {{data.schedule.frequency}} {{data.schedule.interval}}</p>
+                                <p><span>Start date:</span> {{data.schedule.start_date | moment:'LLL'}}</p>
+                                <p><span>Next payment:</span> {{data.schedule.next_assessment | moment:'LLL'}}</p>
+
+                                <p class="mobile_subtitle">Statistics</p>
+                                <p><span>Total amount:</span> {{data.statistics.total_collected_amount}}</p>
+                                <p><span>Successful:</span> {{data.schedule.start_date | moment:'LLL'}}</p>
+
+                                <div class="btns_row cf">
+                                    <a ng-hide="data.status=='deleted'||data.status=='failed'||data.status=='expired'"
+                                       ng-click="editFormVisible=true;detailsFormVisible=false"
+                                       class="xsmall button border_radius green button_left_oriented">
+                                        Edit
+                                    </a>
+                                    <a ng-hide="data.status=='deleted'"
+                                       ng-click="deletesubscr(data._id)"
+                                       class="xsmall button border_radius green button_left_oriented">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!--TABLES-->
+                            <div class="not_mobile_block large-12 columns left_oriented mobile_fullWidth_block">
+                                <div class="cf">
+
+                                    <!--CASTOMER INFO SUBTABLE-->
+                                    <p class="details_title small">Customer information</p>
+                                    <table class="standart_table white">
+                                        <tbody>
+                                            <tr>
+                                                <td>First name</td>
+                                                <td>{{data.customer.first_name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Last name</td>
+                                                <td>{{data.customer.last_name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email</td>
+                                                <td>{{data.customer.email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Reference</td>
+                                                <td>{{data.reference}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!--SCHEDULE SUBTABLE-->
+                                    <p class="details_title small">Schedule</p>
+                                    <table class="standart_table white">
+                                        <tbody>
+                                            <tr>
+                                                <td>Interval</td>
+                                                <td>each {{data.schedule.frequency}} {{data.schedule.interval}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Start date</td>
+                                                <td>{{data.schedule.start_date | moment:'LLL'}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Next payment date</td>
+                                                <td>{{data.schedule.next_assessment | moment:'LLL'}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!--STATISTICS SUBTABLE-->
+                                    <p class="details_title small">Statistics</p>
+                                    <table class="standart_table white mrgn_bottom">
+                                        <tbody>
+                                            <tr>
+                                                <td>Total collected amount</td>
+                                                <td>${{data.statistics.total_collected_amount}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Successful transactions</td>
+                                                <td>{{data.statistics.successful_transactions}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!--BUTTONS-->
+                                    <div class="btns_row cf">
+                                        <a ng-hide="data.status=='deleted'||data.status=='failed'||data.status=='expired'"
+                                           ng-click="showTable(TABLE_TYPE.EDIT)"
+                                           class="small button green button_left_oriented">
+                                            Edit
+                                        </a>
+                                        <a ng-hide="data.status=='deleted'"
+                                           ng-click="deletesubscr(data._id)"
+                                           class="small button green button_left_oriented">
+                                            Delete
+                                        </a>
+                                        <a class="small button green button_left_oriented" href="#/payments/subscriptions" ng-if="isSelectedById()">
+                                            Back to subscriptions list
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--PAGINATION-->
+            <div class="text-center" ng-if="!isSelectedById()">
+                <dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="views/directive/dirPagination.tpl.html"></dir-pagination-controls>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

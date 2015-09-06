@@ -1,0 +1,59 @@
+<div class="content active login_page_form">
+
+    <!--SUBTITLE-->
+    <div class="login_form_subtitle">
+        <p>Welcome back!</p>
+    </div>
+
+    <!--FORM-->
+    <form name="singInForm" class="stylized-form cf" ng-submit="login()">
+
+        <!--email-->
+        <div class="relative-container">
+            <input class="tip-left"
+                   type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   ng-model="email"
+                   required
+                   ng-pattern="REGEX.EMAIL"
+                   required
+                   validate-tooltip
+                   error-text="{
+                        pattern: 'Please input a valid email address',
+                        required: 'Enter your email'
+                   }" />
+            <i class="step fi-mail"></i>
+        </div>
+
+        <!--password-->
+        <div class="relative-container">
+            <input class="tip-right"
+                   type="password"
+                   name="password"
+                   placeholder="Enter your password"
+                   ng-model="password"
+                   ng-maxlength="50"
+                   required
+                   validate-tooltip
+                   error-text="{
+                        required: 'Enter your password'
+                   }" />
+            <i class="step fi-unlock"></i>
+        </div>
+
+        <!--MESSAGE-->
+        <div class="login_msg last"
+             clean-tmp-text="action"
+             duration="1500" >
+        </div>
+
+        <!--BUTTON-->
+        <button class="small button border_radius green"
+                type="submit"
+                ng-disabled="singInForm.$invalid">
+                Login
+        </button>
+
+    </form>
+</div>

@@ -1,0 +1,122 @@
+
+<div class="tabs_box">
+    <ul class="tabs">
+        <li class="tab-title active"><a href="#/payments/charges">Charges</a></li>
+        <li class="tab-title"><a href="#/payments/subscriptions">Subscriptions</a></li>
+        <li id="thirteenthStop" class="tab-title"><a href="#/payments/addnew">Add new</a></li>
+    </ul>
+
+    <!--CHARGES-->
+    <div class="tabs-content border_radius">
+        <p class="details_title">Charges</p>
+        <p class="details_subtitle">See all your charges and their details here.</p>
+
+        <button class="button grey small download"
+                type="button"
+                ng-click="saveToCsv()"
+                ng-disabled="!chars.length">
+            <span>Download selection</span>
+            <i class="fa fa-download"></i>
+        </button>
+
+        <!--SEARCH PANEL-->
+        <div class="search_panel cf">
+            <form>
+                <div class="large-4 columns left_oriented">
+                    <label>
+                        <span>Search:</span>
+                        <input type="text" ng-model="searchword" id="search" class="form-control">
+                    </label>
+                </div>
+                <div class="large-4 columns left_oriented">
+                    <i class="select_arrow fa fa-caret-down"></i>
+                    <label>
+                        <span>Sort by:</span>
+                        <select ng-model="orderProp">
+                            <option value="created_at" ng-selected="true">Created</option>
+                            <option value="customer.last_name">Last Name</option>
+                            <option value="amount">Amount</option>
+                            <option value="status">Status</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="large-4 columns left_oriented end">
+                    <label>
+                        <span>Items per page:</span>
+                        <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <!--NO CHARGES MSG-->
+        <p ng-if="emptyMessage" class="first_msg">No charges yet, but don't worry your new customers will handle that soon.</p>
+
+
+        <!--TABLE-->
+        <table class="standart_table">
+
+            <thead ng-if="!emptyMessage">
+                <tr>
+                    <th>Name</th>
+                    <th class="not_mobile_cell">Amount</th>
+                    <th class="not_mobile_cell">Date</th>
+                    <th class="not_mobile_cell">Status</th>
+                    <th class="right_align_cell">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody dir-paginate="data in chars | itemsPerPage: pageSize" total-items="totalChars" current-page="currentPage">
+                <tr>
+                    <!--name-->
+                    <td>{{data.customer.first_name}}  {{data.customer.last_name}}</td>
+                    <!--amount-->
+                    <td class="not_mobile_cell">${{data.amount}}</td>
+                    <!--date-->
+                    <td class="not_mobile_cell" >{{data.updated_at | moment:'LLL'}}</td>
+                    <!--status-->
+                    <td ng-if="data.status=='complete'" class="complete not_mobile_cell"><span>{{data.status}}</span></td>
+                    <td ng-if="data.status=='failed'" class="failed not_mobile_cell"><span>{{data.status}}</span></td>
+                    <td ng-if="data.status=='active'" class="active not_mobile_cell"><span>{{data.status}}</span></td>
+                    <td ng-if="data.status=='deleted'" class="deleted not_mobile_cell"><span>{{data.status}}</span></td>
+                    <td ng-if="data.status=='expired'" class="expired not_mobile_cell"><span>{{data.status}}</span></td>
+                    <td ng-if="data.status=='inprogress'" class="inprogress not_mobile_cell"><span>{{data.status}}</span></td>
+                    <!--actions-->
+                    <td class="right_align_cell">
+                        <a ng-hide="detailsFormVisible[$index]" ng-click="chargedetails(data._id);detailsFormVisible[$index] = true"  class="table_link">Details</a>
+                        <a ng-show="detailsFormVisible[$index]" ng-click="detailsFormVisible[$index] = false" class="table_link">Close</a>
+                    </td>
+                </tr>
+
+                <!--JSON TREES-->
+                <tr ng-show="detailsFormVisible[$index]" class="grey">
+                    <td class="details_block" colspan="7">
+                        <table class="json_trees_box">
+                            <tr class="row cf without_mrgns">
+                                <td class="large-6 columns left_oriented">
+                                    <div class="tree_wrp">
+                                        <p class="details_title small">Charge</p>
+                                        <pre class="pretty_json">{{onlyCharge}}</pre>
+                                    </div>
+                                </td>
+                                <td class="large-6 columns left_oriented end">
+                                    <div class="tree_wrp">
+                                        <p class="details_title small">Transactions gateway request/response</p>
+                                        <pre class="pretty_json">{{prettyCharge}}</pre>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!--PAGINATION-->
+        <div class="text-center">
+            <dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="views/directive/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+    </div>
+</div>
+
+

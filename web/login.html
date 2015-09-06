@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en"> <![endif]-->
+<html class="no-js" lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Envoy Recharge</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/main.lib.css">
+    <link rel="stylesheet" href="/css/main.app.css">
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/css/notSupportIE.css">
+    <![endif]-->
+
+</head>
+
+<body class="login"
+      ng-controller="base.BaseCtrl">
+
+<div data-offcanvas="data-offcanvas" class="off-canvas-wrap maxHeight">
+    <div class="inner-wrap maxHeight">
+        <div class="row fullWidth maxHeight">
+            <div class="large-12 columns maxHeight login_page">
+
+                <!--LOGO & MOTTO-->
+                <div class="logo_motto">
+                    <img src="/images/logo.png">
+
+                    <p>The new payments democracy</p>
+                </div>
+
+                <!--TABS-->
+                <div class="login_page_wrp">
+                    <div class="tabs_box">
+                        <ul class="tabs" data-tab>
+                            <li class="tab-title"
+                                ng-class="{'active': routeIsEquivalent('/sign-in') || routeIsEquivalent('/')}">
+                                <a href="#/sign-in">Sign In</a>
+                            </li>
+                            <li class="tab-title"
+                                ng-class="{'active': routeIsEquivalent('/trouble')}">
+                                <a href="#/trouble">Trouble?</a>
+                            </li>
+                            <li class="tab-title"
+                                ng-class="{'active': routeIsEquivalent('/sign-up')}">
+                                <a href="#/sign-up">Sign up</a>
+                            </li>
+                        </ul>
+
+                        <!--TABS CONTENT-->
+                        <div class="tabs-content border_radius" ng-view >
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--scripts-->
+<script src="/js/main.lib.js"></script>
+<script src="/js/login.app.js"></script>
+<script src="../app/lib/js/scripts.js"></script>
+
+<!--------------------- Internet Explorer ---------------------------->
+<div class="not-support-ie" style="display: none">
+    <div class="info-box">
+        Version of Internet Explorer, that you are currently using <br />
+        is not compatible with our system. <br />
+        Please use newer version of Internet Explorer, FireFox or Google Chrome. <br />
+        <br />
+        Thanks for understanding!
+    </div>
+</div>
+
+</body>
+</html>

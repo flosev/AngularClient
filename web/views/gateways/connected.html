@@ -1,0 +1,374 @@
+<div class="tabs_box">
+    <ul class="tabs" data-tab>
+        <li class="tab-title active"><a href="#/gateways/connected">Connected gateways</a></li>
+        <li id="seventhStop" class="tab-title"><a href="#/gateways/addnew">Add new</a></li>
+    </ul>
+
+    <!--CONNECTED GATEWAYS-->
+    <div class="tabs-content border_radius">
+        <p class="details_title">Gateways</p>
+        <p class="details_subtitle">See all your connected gateways and edit their details.</p>
+
+        <!--NO GATEWAYS MSG-->
+        <p ng-if="emptyMessage" class="first_msg">No gateways have been added yet, but you can <a href="#/gateways/addnew">click here</a> and quickly connect one.</p>
+
+        <!--TABLE-->
+        <table class="standart_table">
+
+            <thead ng-if="!emptyMessage">
+                <tr>
+                    <th>Gateway</th>
+                    <th class="not_mobile_cell">Name</th>
+                    <th class="not_mobile_cell">ID</th>
+                    <th class="right_align_cell">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody  ng-repeat="gateway in myTails">
+                <tr>
+                    <!--gateway-->
+                    <td>{{gateway.type}}</td>
+                    <!--name-->
+                    <td class="not_mobile_cell">{{gateway.name}}</td>
+                    <!--id-->
+                    <td class="not_mobile_cell">{{gateway._id}}</td>
+                    <!--actions-->
+                    <td class="right_align_cell">
+                        <a ng-hide="detailsFormVisible[$index]" ng-click="choosegate(gateway.type);detailsFormVisible[$index] = true"  class="table_link">Edit</a>
+                        <a ng-show="detailsFormVisible[$index]" ng-click="detailsFormVisible[$index] = false"  class="table_link">Close</a>
+                    </td>
+                </tr>
+
+                <!--EDIT DETAILS-->
+                <tr ng-show="detailsFormVisible[$index]" class="grey">
+                    <td class="details_block gateways_details" colspan="6">
+                        <div class="mobile_block wide">
+                            <p><span>Name:</span> {{gateway.name}}</p>
+                            <p><span>ID:</span> {{gateway._id}}</p>
+                        </div>
+
+                        <form>
+                            <!--BRAINTREE-->
+                            <div ng-show="braintreeupdateFormVisible" class="spacer_box last cf">
+                                <p class="details_title small">Update your BrainTree gateway</p>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented">
+                                        <label>
+                                            Gateway label
+                                            <input type="text" ng-model="edgatename" placeholder={{gateway.name}}>
+
+                                        </label>
+                                    </div>
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway merchant
+                                            <input type="text" ng-model="merchant" placeholder={{gateway.merchant}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented">
+                                        <label>
+                                            Gateway public key
+                                            <input type="text" ng-model="username" placeholder={{gateway.username}}>
+                                        </label>
+                                    </div>
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway private key
+                                            <input type="text" ng-model="password" placeholder={{gateway.password}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented end">
+                                        <i class="select_arrow fa fa-caret-down"></i>
+                                        <label>
+                                            Select environment mode
+                                            <select ng-model="mode">
+                                                <option value="test">Sandbox</option>
+                                                <option value="life">Production</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--EWAY-->
+                            <div ng-show="ewayupdateFormVisible" class="spacer_box last cf">
+                                <p class="details_title small">Update your Eway gateway</p>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented">
+                                        <label>
+                                            Gateway label
+                                            <input type="text" ng-model="gatename" placeholder={{gateway.name}}>
+                                        </label>
+                                    </div>
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway public key
+                                            <input type="text" ng-model="username" placeholder={{gateway.username}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway password
+                                            <input type="text" ng-model="password" placeholder={{gateway.password}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented end">
+                                        <i class="select_arrow fa fa-caret-down"></i>
+                                        <label>
+                                            Select environment mode
+                                            <select ng-model="mode" ng-init="mode='test'">
+                                                <option value="test" ng-selected="true">Sandbox</option>
+                                                <option value="life">Production</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--EZIDEBIT-->
+                            <div ng-show="ezidebitupdateFormVisible" class="spacer_box last cf">
+                                <p class="details_title small">Update your EziDebit gateway</p>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented">
+                                        <label>
+                                            Gateway label
+                                            <input type="text" ng-model="gatename" placeholder={{gateway.name}}>
+                                        </label>
+                                    </div>
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway public key
+                                            <input type="text" ng-model="username" placeholder={{gateway.username}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway digital key
+                                            <input type="text" ng-model="password" placeholder={{gateway.password}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented end">
+                                        <i class="select_arrow fa fa-caret-down"></i>
+                                        <label>
+                                            Select environment mode
+                                            <select ng-model="mode"  ng-init="mode='test'">
+                                                <option value="test" ng-selected="true">Sandbox</option>
+                                                <option value="life">Production</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--PAYPAL-->
+                            <div ng-show="paypalupdateFormVisible" class="spacer_box last cf">
+                                <p class="details_title small">Update your PayPal gateway</p>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented">
+                                        <label>
+                                            Gateway label
+                                            <input type="text" ng-model="gatename" placeholder={{gateway.name}}>
+                                        </label>
+                                    </div>
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway client ID
+                                            <input type="text" ng-model="username" placeholder={{gateway.username}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway secret key
+                                            <input type="text" ng-model="password" placeholder={{gateway.password}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented end">
+                                        <i class="select_arrow fa fa-caret-down"></i>
+                                        <label>
+                                            Select environment mode
+                                            <select ng-model="mode"  ng-init="mode='test'">
+                                                <option value="test" ng-selected="true">Sandbox</option>
+                                                <option value="life">Production</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--PIN-->
+                            <div ng-show="pinupdateFormVisible" class="spacer_box last cf">
+                                <p class="details_title small">Update your Pin gateway</p>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented">
+                                        <label>
+                                            Gateway Label
+                                            <input type="text" ng-model="gatename" placeholder={{gateway.name}}>
+                                        </label>
+                                    </div>
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway secret key
+                                            <input type="text" ng-model="username" placeholder={{gateway.username}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented end">
+                                        <i class="select_arrow fa fa-caret-down"></i>
+                                        <label>
+                                            Select environment mode
+                                            <select ng-model="mode"  ng-init="mode='test'">
+                                                <option value="test" ng-selected="true">Sandbox</option>
+                                                <option value="life">Production</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--STRIPE-->
+                            <div ng-show="stripeupdateFormVisible" class="spacer_box last cf">
+                                <p class="details_title small">Update your Stripe gateway</p>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented">
+                                        <label>
+                                            Gateway label
+                                            <input type="text" ng-model="gatename" placeholder={{gateway.name}}>
+                                        </label>
+                                    </div>
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway secret key
+                                            <input type="text" ng-model="username" placeholder={{gateway.username}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented end">
+                                        <i class="select_arrow fa fa-caret-down"></i>
+                                        <label>
+                                            Select environment mode
+                                            <select ng-model="mode"  ng-init="mode='test'">
+                                                <option value="test" ng-selected="true">Sandbox</option>
+                                                <option value="life">Production</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--PAYWAY-->
+                            <div ng-show="paywayupdateFormVisible" class="spacer_box last cf">
+                                <p class="details_title small">Update your Payway gateway</p>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented">
+                                        <label>
+                                            Gateway label
+                                            <input type="text" ng-model="gatename" placeholder={{gateway.name}}>
+                                        </label>
+                                    </div>
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway merchant
+                                            <input type="text" ng-model="merchant" placeholder={{gateway.merchant}}>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented">
+                                        <label>
+                                            Gateway username
+                                            <input type="text" ng-model="username" placeholder={{gateway.username}}>
+                                        </label>
+                                    </div>
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway password
+                                            <input type="text" ng-model="password"/>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented">
+                                        <label>
+                                            Gateway certificate passphrase
+                                            <input type="text"/>
+                                        </label>
+                                    </div>
+                                    <div class="large-3 columns left_oriented end">
+                                        <label>
+                                            Gateway certificate ID
+                                            <input type="text"/>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-3 columns left_oriented end">
+                                        <i class="select_arrow fa fa-caret-down"></i>
+                                        <label>
+                                            Select environment mode
+                                            <select ng-model="mode" ng-init="mode='test'">
+                                                <option value="test" ng-selected="true">Sandbox</option>
+                                                <option value="life">Production</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--BUTTONS-->
+                            <div class="btns_row btns_without_mrgn cf">
+                                <a ng-click="editgateways(gateway._id, gateway.type)" class="small button border_radius green">Update gateway</a>
+                                <a ng-click="testgateways(gateway._id)" class="small button border_radius green">Test gateway</a>
+                                <a ng-click="detailsFormVisible = false" class="small button border_radius green">Cancel</a>
+                                <a ng-click="deletegateways(gateway._id)" class="small button border_radius green">Delete</a>
+                            </div>
+
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+                            
+<!--MESSAGE-->
+<div class={{class}}
+     clean-tmp-text="action"
+     duration="1000"></div>

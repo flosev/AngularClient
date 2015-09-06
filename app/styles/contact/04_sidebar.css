@@ -1,0 +1,144 @@
+.sidebar {
+    background-color: #666666;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 0!important;
+}
+.avatar {
+    width: 6rem;
+    height: 6rem;
+    box-shadow: 0 0 0 4px #eeeeee;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 60%;
+    background-size: cover;
+    background-color: #eeeeee;
+    margin: 1rem auto;
+    overflow: hidden;
+}
+.sidebar_list {
+    text-align: center;
+}
+.sidebar_list a {
+    display: block;
+    color: #eeeeee;
+    text-transform: uppercase;
+    text-align: left;
+    font-family: 'ralewaymedium';
+    font-size: 0.79rem;
+    padding: 1.5rem;
+}
+.sidebar_list > li {
+    border-bottom: 1px solid #555555;
+}
+.sidebar_list a:hover,
+.sidebar_list a.active {
+    background-color: #555555;
+}
+.sidebar_list i {
+    margin: 0 0.5em;
+}
+.sidebar_list ul li a,
+.sidebar_list .username_link {
+    display: inline-block;
+    width: 100%;
+}
+.sidebar_list ul li a.username_link {
+    background: #555555;
+    position: relative;
+}
+.user_name {
+    display: block;
+    max-width: 10.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.username_link i {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.45rem;
+}
+.username_link i:before {
+    font-size: 1rem;
+}
+.username_link.active i {
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.user_menu {
+    display: none;
+}
+.sidebar_list ul li .user_menu ul li a {
+    padding: 1rem 1.5rem;
+    font-size: 0.7rem;
+}
+.sidebar_item i {
+    display: inline-block;
+    margin: 0 0.8rem 0 0;
+    min-width: 1.5rem;
+    text-align: center;
+}
+.sidebar_item i:before {
+    font-size: 1.4rem;
+}
+.sidebar_item span {
+    vertical-align: top;
+    display: inline-block;
+    padding-top: 0.3rem;
+}
+.help_block {
+    font-family: "ralewaysemibold";
+    font-size: 0.7rem;
+    line-height: 0.9rem;
+    text-align: left;
+    color: #ffffff;
+    padding: 1rem!important;
+    border-bottom: none!important;
+}
+.help_block.mobile_help_block {
+    position: relative;
+    padding: 1rem 2rem!important;
+    border-bottom: none!important;
+}
+.help_block.mobile_help_block a {
+    padding: 0!important;
+}
+.help_block a {
+    font-family: "ralewaysemibold";
+    font-size: 0.7rem;
+    color: #77cca3;
+    text-transform: none;
+    padding: 0 !important;
+}
+.help_block a:hover {
+    background: transparent !important;
+    color: #b5debe;
+}
+
+/*---------MOBILE STYLES---------*/
+@media only screen and (max-width: 1366px) {
+    .username_link i {
+        right: 1rem;
+        top: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 1340px) {
+    .user_name {
+        max-width: 10rem;
+    }
+}
+@media only screen and (max-width: 1250px) {
+    .user_name {
+        max-width: 7.5rem;
+    }
+    .help_block a {
+        font-size: 0.62rem;
+    }
+}

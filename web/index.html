@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Envoy Recharge</title>
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/main.lib.css">
+    <link rel="stylesheet" href="/css/main.app.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/css/notSupportIE.css">
+    <![endif]-->
+</head>
+
+<body ng-controller="base.BaseCtrl">
+
+    <div data-offcanvas="data-offcanvas" class="off-canvas-wrap fullHeight">
+
+        <div class="inner-wrap fullHeight">
+
+            <!--MOBILE BULLETIN-->
+            <div class="bulletin_box mobile" ng-controller="base.BulletinCtrl">
+                <div bullet-in></div>
+            </div>
+
+            <!--MOBILE HEADER-->
+            <div class="row hide-for-large-up mobile_header not_print_element">
+                <div class="small-3 columns">
+                    <a href="javascript:void(0);" class="left-off-canvas-toggle mobile_nav">
+                        <i class="step fi-align-justify"></i>
+                    </a>
+                </div>
+                <div class="small-9 columns s-mobile-header-right">
+                    <a href="#" class="logo not_print_element">
+                        <img src="/images/logo.png">
+                    </a>
+                </div>
+            </div>
+
+            <!--MOBILE NAV-->
+            <aside data-ng-controller="base.EmptyCtrl" class="left-off-canvas-menu s-app-left-nav-col not_print_element"
+                   style="min-height: 1200px;">
+                <nav id="core-lhs-nav">
+                    <ul class="sidebar_list">
+
+                        <!--USER-->
+                        <li>
+                            <ul>
+                                <li>
+                                    <!--AVATAR-->
+                                    <div class="avatar" style="background-image: url(/images/avatar.jpg)">
+                                        <img gravatar-src-once="email">
+                                    </div>
+
+                                    <!--USERNAME-->
+                                    <a class="username_link">
+                                        <span class="user_name">{{this.usern}}</span>
+                                        <i class="fa fa-caret-down"></i>
+                                    </a>
+
+                                    <!--USERNAV-->
+                                    <div class="user_menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#/myaccount/personal">My account</a>
+                                            </li>
+                                            <li>
+                                                <a href="#/mycompany">My company</a>
+                                            </li>
+                                            <li>
+                                                <a ng-href="#/billing/plan">My billing</a>
+                                            </li>
+                                            <li>
+                                                <a ng-click="logout()">Sign out</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--OTHER ITEMS-->
+                        <li>
+                            <a href="#/dashboard/chart" class="sidebar_item">
+                                <i class="fa fa-line-chart"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/payments/charges" class="sidebar_item">
+                                <i class="fa fa-credit-card"></i>
+                                <span>Payments</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/customers/customers" class="sidebar_item">
+                                <i class="fa fa-user"></i>
+                                <span>Customers</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="#/gateways/connected" class="sidebar_item">
+                                <i class="fa fa-plug"></i>
+                                <span>Gateways</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="#/notifications/current" class="sidebar_item">
+                                <i class="fa fa-envelope-o"></i>
+                                <span>Notifications</span>
+                            </a>
+                        </li>
+                        <li class="help_block mobile_help_block">
+                            <p>Need help?</p>
+                            <p>
+                                Contact us at
+                                <a href="mailto:support@envoyrecharge.com" target="_blank">support@envoyrecharge.com</a>
+                            </p>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <div class="row fullWidth fullHeight">
+
+                <!--MAIN SIDEBAR-->
+                <div data-ng-controller="base.EmptyCtrl"
+                     class="large-2 columns fullHeight s-app-left-nav-col no-padding show-for-large-up sidebar not_print_element">
+                    <ul class="sidebar_list">
+
+                        <!--USER-->
+                        <li>
+                            <ul>
+                                <li id="firstStop">
+
+                                    <!--AVATAR-->
+                                    <div class="avatar" style="background-image: url(/images/avatar.jpg)">
+                                        <img gravatar-src-once="email">
+                                    </div>
+
+                                    <!--USERNAME-->
+                                    <a class="username_link">
+                                        <span class="user_name">{{this.usern}}</span>
+                                        <i class="fa fa-caret-down"></i>
+                                    </a>
+
+                                    <!--USERNAV-->
+                                    <div class="user_menu" data-ng-controller="base.LogoutCtrl">
+                                        <ul>
+                                            <li>
+                                                <a href="#/myaccount/personal">My account</a>
+                                            </li>
+                                            <li>
+                                                <a href="#/mycompany">My company</a>
+                                            </li>
+                                            <li id="secondStop">
+                                                <a ng-href="#/billing/plan">My billing</a>
+                                            </li>
+                                            <li>
+                                                <a ng-click="logout()">Sign out</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--OTHER ITEMS-->
+                        <li id="fourteenthStop">
+                            <a href="#/dashboard/chart" class="sidebar_item">
+                                <i class="fa fa-line-chart"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li id="twelfthStop">
+                            <a href="#/payments/charges" class="sidebar_item">
+                                <i class="fa fa-credit-card"></i>
+                                <span>Payments</span>
+                            </a>
+                        </li>
+                        <li id="ninthStop">
+                            <a href="#/customers/customers" class="sidebar_item">
+                                <i class="fa fa-user"></i>
+                                <span>Customers</span>
+                            </a>
+                        </li>
+                        <li id="sixthStop">
+                            <a ng-href="#/gateways/connected" class="sidebar_item">
+                                <i class="fa fa-plug"></i>
+                                <span>Gateways</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="#/notifications/current" class="sidebar_item">
+                                <i class="fa fa-envelope-o"></i>
+                                <span>Notifications</span>
+                            </a>
+                        </li>
+                        <li class="help_block">
+                            <p>Need help?</p>
+                            <p>
+                                Contact us at
+                                <a href="mailto:support@envoyrecharge.com" target="_blank">support@envoyrecharge.com</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--MAIN CONTENT-->
+                <div class="large-10 columns content">
+
+                    <!--BULLETIN-->
+                    <div class="bulletin_box" ng-controller="base.BulletinCtrl">
+                        <div bullet-in></div>
+                    </div>
+
+                    <!--LOGO-->
+                    <div class="header cf">
+                        <a href="#" class="logo not_print_element">
+                            <img src="/images/logo.png">
+                        </a>
+                        <!--PRINT LOGO-->
+                        <a href="#" class="logo print">
+                            <img src="/images/logo_gray.png">
+                        </a>
+                    </div>
+
+                    <!--CONTENT-->
+                    <div class="container" ng-view="">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--FOUNDATION TAG-->
+            <a class="exit-off-canvas"></a>
+
+
+            <!--JOYRIDE TOOLTIPS-->
+            <ng-include src="'/views/guide/joyrideContent.html'"> </ng-include>
+        </div>
+    </div>
+
+    <script src="/js/main.lib.js"></script>
+    <script src="/js/main.app.js"></script>
+
+    <!--------------------- Internet Explorer ---------------------------->
+    <div class="not-support-ie">
+        <div class="info-box">
+            <p><span>Hi there, </span>
+            You are running an outdated version of Internet Explorer<br />
+            that is not compatible with our system.</p>
+
+            <p>Please upgrade you version till latest<br />
+            or download one of these newer browsers.<br />
+            It only takes a minute.</p>
+
+            <p>Thanks!</p>
+            </p>
+            <div class="browsers">
+                <a href="https://www.google.com/chrome/browser/desktop/index.html">
+                    <img src="/images/chrome.png">
+                </a>
+                <a href="https://www.mozilla.org/firefox/new/">
+                    <img src="/images/ff.png">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

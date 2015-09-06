@@ -1,0 +1,187 @@
+<div data-offcanvas="data-offcanvas" class="off-canvas-wrap fullHeight" data-ng-controller="HomeCtrl">
+
+    <div class="inner-wrap fullHeight">
+
+        <!--MOBILE HEADER-->
+        <div  class="row hide-for-large-up mobile_header">
+            <div class="small-3 columns">
+                <a href="#" class="left-off-canvas-toggle modile_nav">
+                    <i class="step fi-align-justify"></i>
+                </a>
+            </div>
+            <div class="small-9 columns s-mobile-header-right">
+                <a href="#" class="logo">
+                    <img src="./images/logo.png">
+                </a>
+            </div>
+        </div>
+
+        <!--MOBILE NAV-->
+        <!-- <aside data-ng-show="token" class="left-off-canvas-menu s-app-left-nav-col" style="min-height: 4463px;">-->
+        <aside class="left-off-canvas-menu s-app-left-nav-col" style="min-height: 4463px;">
+            <nav id="core-lhs-nav">
+                <ul class="sidebar_list">
+                    <li>
+                        <ul>
+                            <li>
+                                <div class="avatar" style="background-image: url(/images/avatar.jpg)"></div>
+                                <a class="username_link">
+                                    Username
+                                    <i class="step fi-play"></i>
+                                </a>
+                                <div class="user_menu">
+                                    <ul>
+                                        <li>
+                                            <a ng-click="myaccount()">My account</a>
+                                        </li>
+                                        <li>
+                                            <a ng-click="mycompany()">My company</a>
+                                        </li>
+                                        <li>
+                                            <a ng-click="logout()">Sign out</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a ng-click="dashboardchart()" class="sidebar_item">
+                            <i class="step fi-graph-trend"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="paymentscharges()" class="sidebar_item">
+                            <i class="step fi-dollar-bill"></i>
+                            Payments
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="customers()" class="sidebar_item">
+                            <i class="step fi-social-skillshare"></i>
+                            Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="connectedgateways()" class="sidebar_item">
+                            <i class="step fi-link"></i>
+                            Gateways
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="currentnotifications()" class="sidebar_item">
+                            <i class="step fi-comment"></i>
+                            Notifications
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="billingplan()" class="sidebar_item">
+                            <i class="step fi-graph-pie"></i>
+                            Billing
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div  class="row fullWidth fullHeight">
+
+            <!--SIDEBAR-->
+            <!--<div ng-if="token" class="large-2 columns fullHeight s-app-left-nav-col no-padding show-for-large-up sidebar">-->
+            <div  class="large-2 columns fullHeight s-app-left-nav-col no-padding show-for-large-up sidebar">
+                <ul class="sidebar_list">
+                    <li >
+                        <ul>
+                            <li>
+                                <div class="avatar" style="background-image: url(/images/avatar.jpg)"></div>
+                                <a class="username_link">
+                                    Username
+                                    <i class="step fi-play"></i>
+                                </a>
+                                <div class="user_menu">
+                                    <ul>
+                                        <li>
+                                            <a href="#/myaccount">My account</a>
+                                        </li>
+                                        <li>
+                                            <a href="#/mycompany">My company</a>
+                                        </li>
+                                        <li>
+                                            <a  ng-click="logout()">Sign out</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a ng-click="dashboardchart()" class="sidebar_item">
+                            <!--<a href="#/dashboard" class="sidebar_item">-->
+                            <i class="step fi-graph-trend"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="paymentscharges()" class="sidebar_item">
+                            <!--<a ng-href="#/payments" class="sidebar_item">-->
+                            <i class="step fi-dollar-bill"></i>
+                            Payments
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="customers()" class="sidebar_item">
+                            <!--<a ng-href="#/customers" class="sidebar_item">-->
+                            <i class="step fi-social-skillshare"></i>
+                            Customers
+                        </a>
+                    </li>
+                    <!--delete-->
+                    <!--<li ng-class="{active: main.active.tab == 'info'}">
+
+                        <a ng-click='main.active.tab = "pages"' class="sidebar_item">
+                            <i class="step fi-social-skillshare"></i>
+                            Directive
+                        </a>
+                    </li>-->
+                    <!--delete-->
+                    <li>
+                        <a ng-click="connectedgateways()" class="sidebar_item">
+                            <!--<a ng-href="#/gateways/connectedgateways" class="sidebar_item">-->
+                            <i class="step fi-link"></i>
+                            Gateways
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="currentnotifications()" class="sidebar_item">
+                            <!--<a ng-href="#/notifications" class="sidebar_item">-->
+                            <i class="step fi-comment"></i>
+                            Notifications
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="billingplan()" class="sidebar_item">
+                            <!--<a ng-href="#/billing" class="sidebar_item">-->
+                            <i class="step fi-graph-pie"></i>
+                            Billing
+                        </a>
+                    </li>
+                </ul>
+            </div>  <!--end of "large-2 columns fullHeight s-app-left-nav-col no-padding show-for-large-up sidebar"-->
+
+            <!--CONTENT-->
+            <div class="large-10 columns content">
+
+                <div class="header cf">
+                    <a href="#" class="logo">
+                        <img src="images/logo.png">
+                    </a>
+                </div>
+
+                <div class="container" ng-view="">
+
+                </div>
+            </div>
+        </div>  <!--end of "row fullWidth fullHeight"-->
+    </div>
+</div>

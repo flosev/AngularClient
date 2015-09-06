@@ -1,0 +1,45 @@
+<div class="content login_page_form active">
+
+    <!--subtitle-->
+    <div class="login_form_subtitle">
+        <p>Forgotten your password?</p>
+        <p>Enter your email below to retrieve it</p>
+    </div>
+
+    <!--form-->
+    <form name="recoveryForm" class="stylized-form" ng-submit="recovery()">
+
+        <!--email-->
+        <div class="relative-container">
+            <input class="tip-bottom"
+                   type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   ng-model="email"
+                   required
+                   ng-pattern="REGEX.EMAIL"
+                   required
+                   validate-tooltip
+                   error-text="{
+                        pattern: 'Please input a valid email address',
+                        required: 'Enter your email'
+                   }"/>
+
+            <i class="step fi-mail"></i>
+        </div>
+
+        <!--message-->
+        <div class="login_msg last"
+             clean-tmp-text="action"
+             duration="1000" >
+        </div>
+
+        <!--button-->
+        <button class="small button border_radius green"
+                type="submit"
+                ng-disabled="recoveryForm.$invalid">
+            Go get it!
+        </button>
+        
+    </form>
+</div>

@@ -1,0 +1,105 @@
+html, body {
+    height: 100%;
+}
+body {
+    background: url(../images/bg.jpg) repeat-y 0 0;
+    background-size: cover;
+}
+input, select {
+    cursor: pointer;
+    outline: none!important;
+    background: #ffffff!important;
+    -webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    box-shadow: none!important;
+    border: 1px solid #dddddd!important;
+    height: 37px!important;
+    border-radius: 0!important;
+    padding: 0 0.5rem!important;
+}
+select {
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+}
+select option {
+    padding: 0.5rem;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+input[type="checkbox"] {
+    margin: 0;
+    vertical-align: bottom;
+}
+i {
+    cursor: pointer;
+}
+*:focus {
+    outline: none!important;
+}
+.row {
+    max-width: inherit;
+}
+.relative-container {
+    position: relative;
+}
+.fullWidth {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: initial;
+}
+.fullHeight {
+    min-height: 100%;
+}
+.maxHeight {
+    height: 100%;
+}
+/*.border_radius {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}*/
+.columns .left_oriented {
+    padding-left: 0;
+}
+.columns.without_pdng {
+    padding: 0;
+}
+.grey_block {
+    background: #eeeeee;
+    padding: 1rem;
+}
+.without_mrgns {
+    margin: 0!important;
+}
+.without_mrgn_left {
+    margin-left: 0!important;
+}
+.without_pdng {
+    padding: 0!important;
+}
+.mrgn_top {
+    margin-top: 1rem!important;
+}
+.mrgn_bottom {
+    margin-bottom: 1rem!important;
+}
+.float_left {
+    float: left !important;
+}
+.float_right {
+    float: right !important;
+}
+.tooltip_wrp {
+    padding: 0!important;
+}
+.capitalized {
+    text-transform: capitalize;
+}

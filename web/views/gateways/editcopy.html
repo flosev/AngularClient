@@ -1,0 +1,251 @@
+<!-- Brain-->
+<div ng-show="braintreeupdateFormVisible">
+    <p class="details_title">Update your BrainTree gateway</p>
+    <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+    <form>
+        <label>
+            Gateway Label
+            <input type="text" ng-model="gatename" placeholder={{gatetype}}>
+        </label>
+    </form>
+    <form>
+        <label>
+            Merchant
+            <input type="text" ng-model="merchant"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Client ID
+            <input type="text" ng-model="username"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Secret Key
+            <input type="text" ng-model="password"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Select Environment Mode
+            <select ng-model="mode">
+                <option value="test">sandbox</option>
+                <option value="life">production</option>
+            </select>
+        </label>
+    </form>
+    <div class="btns_row btns_without_mrgn cf">
+        <a ng-click="editgateways(gateway._id)" class="small button border_radius green">Update</a>
+        <a ng-click="braintreeupdateFormVisible = false;mainFormVisible = false" class="small button border_radius green cancel_btn">Cancel</a>
+    </div>
+</div>
+<!-- Eway-->
+<div ng-show="ewayupdateFormVisible">
+    <p class="details_title">Update your Eway gateway</p>
+    <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+    <form>
+        <label>
+            Gateway Label
+            <input type="text" ng-model="gatename"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Client ID
+            <input type="text" ng-model="username"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Secret Key
+            <input type="text" ng-model="password"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Select Environment Mode
+            <select ng-model="mode">
+                <option value="test">sandbox</option>
+                <option value="life">production</option>
+            </select>
+        </label>
+    </form>
+    <div class="btns_row btns_without_mrgn cf">
+        <a ng-click="editgateways(gateway._id)" class="small button border_radius green">Update</a>
+        <a ng-click="ewayupdateFormVisible = false;mainFormVisible = false" class="small button border_radius green cancel_btn">Cancel</a>
+    </div>
+</div>
+<!--Ezidebit-->
+<div ng-show="ezidebitupdateFormVisible">
+    <p class="details_title">Update your EziDebit gateway</p>
+    <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+    <form>
+        <label>
+            Gateway Label
+            <input type="text" ng-model="gatename"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Client ID
+            <input type="text" ng-model="username"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Secret Key
+            <input type="text" ng-model="password"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Select Environment Mode
+            <select ng-model="mode">
+                <option value="test">sandbox</option>
+                <option value="life">production</option>
+            </select>
+        </label>
+    </form>
+    <div class="btns_row btns_without_mrgn cf">
+        <a ng-click="editgateways(gateway._id)" class="small button border_radius green">Update</a>
+        <a ng-click="ezidebitupdateFormVisible = false;mainFormVisible = false" class="small button border_radius green cancel_btn">Cancel</a>
+    </div>
+</div>
+<!--paypal-->
+<div ng-show="paypalupdateFormVisible">
+    <p class="details_title">Update your PayPal gateway</p>
+    <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+    <form>
+        <label>
+            Gateway Label
+            <input type="text" ng-model="gatename"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Client ID
+            <input type="text" ng-model="username"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Secret Key
+            <input type="text" ng-model="password"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Select Environment Mode
+            <select ng-model="mode">
+                <option value="test">sandbox</option>
+                <option value="life">production</option>
+            </select>
+        </label>
+    </form>
+    <div class="btns_row btns_without_mrgn cf">
+        <a ng-click="editgateways(gateway._id)" class="small button border_radius green">Update</a>
+        <a ng-click="paypalupdateFormVisible = false;mainFormVisible = false" class="small button border_radius green cancel_btn">Cancel</a>
+    </div>
+</div>
+<!--pinForm-->
+<div ng-show="pinupdateFormVisible">
+    <p class="details_title">Update your Pin gateway</p>
+    <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+    <form>
+        <label>
+            Gateway Label
+            <input type="text" ng-model="gatename"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Client ID
+            <input type="text" ng-model="username"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Select Environment Mode
+            <select ng-model="mode">
+                <option value="test">sandbox</option>
+                <option value="life">production</option>
+            </select>
+        </label>
+    </form>
+    <div class="btns_row btns_without_mrgn cf">
+        <a ng-click="editgateways(gateway._id)" class="small button border_radius green">Update</a>
+        <a ng-click="pinupdateFormVisible = false;mainFormVisible = false" class="small button border_radius green cancel_btn">Cancel</a>
+    </div>
+</div>
+<!--Stripe-->
+<div ng-show="stripeupdateFormVisible">
+    <p class="details_title">Update your Stripe gateway</p>
+    <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+    <form>
+        <label>
+            Gateway Label
+            <input type="text" ng-model="gatename"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Client ID
+            <input type="text" ng-model="username"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Select Environment Mode
+            <select ng-model="mode">
+                <option value="test">sandbox</option>
+                <option value="life">production</option>
+            </select>
+        </label>
+    </form>
+    <div class="btns_row btns_without_mrgn cf">
+        <a ng-click="editgateways(gateway._id)" class="small button border_radius green">Update</a>
+        <a ng-click="stripeupdateFormVisible = false;mainFormVisible = false" class="small button border_radius green cancel_btn">Cancel</a>
+    </div>
+</div>
+<div ng-show="paywayupdateFormVisible">
+    <p class="details_title">Update your Payway gateway</p>
+    <p class="details_subtitle">Enter your gateway credentials and connect it to EnvoyRecharge</p>
+    <form>
+        <label>
+            Gateway Label
+            <input type="text" ng-model="gatename"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Merchant
+            <input type="text" ng-model="merchant"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Client ID
+            <input type="text" ng-model="username"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Gateway Secret Key
+            <input type="text" ng-model="password"/>
+        </label>
+    </form>
+    <form>
+        <label>
+            Select Environment Mode
+            <select ng-model="mode">
+                <option value="test">sandbox</option>
+                <option value="life">production</option>
+            </select>
+        </label>
+    </form>
+    <div class="btns_row btns_without_mrgn cf">
+        <a ng-click="editgateways(gateway._id)" class="small button border_radius green">Update</a>
+        <a ng-click="paywayupdateFormVisible = false;mainFormVisible = false" class="small button border_radius green cancel_btn">Cancel</a>
+    </div>
+</div>

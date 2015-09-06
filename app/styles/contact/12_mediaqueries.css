@@ -1,0 +1,469 @@
+
+/* Kindle Fire HD 8.9" */
+@media only screen and (max-height: 1280px) {
+	.logo_motto {
+		top: 22rem;
+		width: 20rem;
+		margin-left: -10rem;
+		font-size: 1rem;
+	}
+	.logo_motto img {
+		width: 16rem;
+	}
+	.logo_motto p {
+		margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 24rem;
+		margin-left: -177px;
+		min-width: 354px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.3rem!important;
+	}
+}
+
+/* Desktop 24" */
+@media only screen and (max-height: 1200px) {
+	.logo_motto {
+		top: 16rem;
+		width: 20rem;
+		margin-left: -10rem;
+		font-size: 1.2rem;
+	}
+	.logo_motto img {
+		width: 18rem;
+	}
+	.logo_motto p {
+		margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 22rem;
+		margin-left: -202px;
+		min-width: 404px;
+	}
+}
+
+/* Desktop 23" */
+/* Television 1080p */
+@media only screen and (max-height: 1080px) {
+	.logo_motto {
+		top: 13rem;
+		width: 20rem;
+		margin-left: -10rem;
+		font-size: 1.2rem;
+	}
+	.logo_motto img {
+		width: 18rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 13rem;
+		margin-left: -202px;
+		min-width: 404px;
+	}
+}
+
+/* Desktop 22" */
+@media only screen and (max-height: 1050px) {
+	.logo_motto {
+		top: 13rem;
+		width: 20rem;
+		margin-left: -10rem;
+		font-size: 1.2rem;
+	}
+	.logo_motto img {
+		width: 18rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 13rem;
+		margin-left: -202px;
+		min-width: 404px;
+	}
+}
+
+/* Apple iPad */
+/* Samsung Galaxy Tab */
+@media only screen and (max-height: 1024px) {
+	.logo_motto {
+		top: 15rem;
+		width: 18rem;
+		margin-left: -9rem;
+		font-size: 1rem;
+	}
+	.logo_motto img {
+		width: 16rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 15rem;
+		margin-left: -177px;
+		min-width: 354px;
+	}
+}
+
+/* Google Nexus 7 */
+@media only screen and (max-height: 966px) {
+	.logo_motto {
+		top: 13rem;
+		width: 18rem;
+		margin-left: -9rem;
+		font-size: 1rem;
+	}
+	.logo_motto img {
+		width: 16rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 14rem;
+		margin-left: -177px;
+		min-width: 354px;
+	}
+}
+
+/* desctop 20" */
+@media only screen and (max-height: 900px) {
+	.logo_motto {
+		top: 11rem;
+		width: 20rem;
+		margin-left: -10rem;
+		font-size: 1.2rem;
+	}
+	.logo_motto img {
+		width: 18rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 11rem;
+		margin-left: -202px;
+		min-width: 404px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.1rem!important;
+	}
+}
+
+/* Kindle Fire HD 7" */
+@media only screen and (max-height: 853px) {
+	.logo_motto {
+		top: 11rem;
+		width: 18rem;
+		margin-left: -9rem;
+		font-size: 1rem;
+	}
+	.logo_motto img {
+		width: 16rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 11rem;
+		margin-left: -177px;
+		min-width: 354px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.4rem!important;
+	}
+}
+
+/* Notebook 13" */
+/* Kindle Fire */
+@media only screen and (max-height: 800px) {
+	.logo_motto {
+		top: 9rem;
+		width: 18rem;
+		margin-left: -9rem;
+		font-size: 1rem;
+	}
+	.logo_motto img {
+		width: 16rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 9rem;
+		margin-left: -177px;
+		min-width: 354px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.4rem!important;
+	}
+}
+
+/* Notebook 15" */
+/* Notebook 12" */
+@media only screen and (max-height: 768px) {
+	.logo_motto {
+		top: 8rem;
+		width: 18rem;
+		margin-left: -9rem;
+		font-size: 1rem;
+	}
+	.logo_motto img {
+		width: 16rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 8rem;
+		margin-left: -202px;
+		min-width: 404px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.3rem!important;
+	}
+	.login_page .tabs .tab-title > a {
+		font-size: 1rem !important;
+	}
+}
+
+/* Apple iPhone 6 Plus */
+@media only screen and (max-height: 736px) {
+	.logo_motto {
+		top: 7rem;
+		width: 16rem;
+		margin-left: -8rem;
+		font-size: 0.9rem;
+	}
+	.logo_motto img {
+		width: 14rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1rem;
+	}
+	.login_page_wrp {
+		bottom: 8rem;
+		margin-left: -144px;
+		min-width: 288px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.3rem!important;
+	}
+	.login_page .tabs .tab-title > a {
+		padding: 1rem 0.8rem;
+		font-size: 0.75rem!important;
+	}
+}
+
+/* Television 720p */
+@media only screen and (max-height: 720px) {
+	.logo_motto {
+		top: 6rem;
+		width: 18rem;
+		margin-left: -9rem;
+		font-size: 1rem;
+	}
+	.logo_motto img {
+		width: 16rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 6rem;
+		margin-left: -202px;
+		min-width: 404px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.2rem!important;
+	}
+	.login_page .tabs .tab-title > a {
+		font-size: 1rem !important;
+		padding: 1rem 1.3rem;
+	}
+}
+
+/* Apple iPhone 6 */
+@media only screen and (max-height: 667px) {
+	.logo_motto {
+		top: 6rem;
+		width: 16rem;
+		margin-left: -8rem;
+		font-size: 0.9rem;
+	}
+	.logo_motto img {
+		width: 14rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1rem;
+	}
+	.login_page_wrp {
+		bottom: 5rem;
+		margin-left: -144px;
+		min-width: 288px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.3rem!important;
+	}
+	.login_page .tabs .tab-title > a {
+		padding: 1rem 0.8rem;
+		font-size: 0.75rem!important;
+	}
+}
+
+/* Samsung Galaxy S5 */
+/* Samsung Galaxy S3/4 */
+@media only screen and (max-height: 640px) {
+	.logo_motto {
+		top: 5rem;
+		width: 16rem;
+		margin-left: -8rem;
+		font-size: 0.9rem;
+	}
+	.logo_motto img {
+		width: 14rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1rem;
+	}
+	.login_page_wrp {
+		bottom: 4rem;
+		margin-left: -144px;
+		min-width: 288px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.3rem!important;
+	}
+	.login_page .tabs .tab-title > a {
+		padding: 1rem 0.8rem;
+		font-size: 0.75rem!important;
+	}
+}
+
+/* Notebook 10" */
+@media only screen and (max-height: 600px) {
+	.logo_motto {
+		top: 3rem;
+		width: 18rem;
+		margin-left: -9rem;
+		font-size: 1rem;
+	}
+	.logo_motto img {
+		width: 16rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1.5rem;
+	}
+	.login_page_wrp {
+		bottom: 3rem;
+		margin-left: -202px;
+		min-width: 404px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.3rem!important;
+	}
+	.login_page .tabs .tab-title > a {
+		font-size: 1rem !important;
+		padding: 1rem 1.3rem;
+	}
+}
+
+/* Apple iPhone 5 */
+@media only screen and (max-height: 568px) {
+	.logo_motto {
+		top: 3rem;
+		width: 16rem;
+		margin-left: -8rem;
+		font-size: 0.9rem;
+	}
+	.logo_motto img {
+		width: 14rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1rem;
+	}
+	.login_page_wrp {
+		bottom: 2rem;
+		margin-left: -144px;
+		min-width: 288px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.3rem!important;
+	}
+	.login_page .tabs .tab-title > a {
+		padding: 1rem 0.8rem;
+		font-size: 0.75rem!important;
+	}
+}
+
+/* ASUS Galaxy 7 */
+/* Samsung Galaxy S2 */
+@media only screen and (max-height: 533px) {
+	.logo_motto {
+		top: 2rem;
+		width: 16rem;
+		margin-left: -8rem;
+		font-size: 0.9rem;
+	}
+	.logo_motto img {
+		width: 14rem;
+	}
+	.logo_motto p {
+	  	margin-top: 1rem;
+	}
+	.login_page_wrp {
+		bottom: 2rem;
+		margin-left: -144px;
+		min-width: 288px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.3rem!important;
+	}
+	.login_page .tabs .tab-title > a {
+		padding: 1rem 0.8rem;
+		font-size: 0.75rem!important;
+	}
+}
+
+/* LG Optimus S */
+/* Apple iPhone 3/4 */
+@media only screen and (max-height: 480px) {
+	.logo_motto {
+		top: 1.5rem;
+		width: 16rem;
+		margin-left: -8rem;
+		font-size: 0.8rem;
+	}
+	.logo_motto img {
+		width: 11rem;
+	}
+	.logo_motto p {
+	  	margin-top: 0.5rem;
+	}
+	.login_page_wrp {
+		bottom: 1rem;
+		margin-left: -144px;
+		min-width: 288px;
+	}
+	.login_page .tabs .tab-title:first-child {
+		margin-left: 1.3rem!important;
+	}
+	.login_page .tabs .tab-title > a {
+		padding: 1rem 0.8rem;
+		font-size: 0.75rem!important;
+	}
+}
+
+
+
+
+
+
+
+
+
+

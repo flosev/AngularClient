@@ -1,0 +1,36 @@
+
+
+/**
+ * Tooltips
+ *
+ */
+
+.tooltip.validate-tooltip {
+    background: #666;
+    font-family: "ralewaymedium";
+    font-size: 0.7rem;
+}
+
+.tooltip.validate-tooltip > .nub {
+    border-color: transparent transparent #666 transparent;
+}
+
+@media only screen and (min-width: 40.063em) {
+
+    .tooltip.validate-tooltip > .nub {
+        border-color: transparent transparent #666 transparent;
+    }
+
+    .tooltip.validate-tooltip.tip-top > .nub {
+        border-color: #666 transparent transparent transparent;
+    }
+
+    .tooltip.validate-tooltip.tip-left > .nub {
+        border-color: transparent transparent transparent #666;
+    }
+
+    .tooltip.validate-tooltip.tip-right > .nub {
+        border-color: transparent #666 transparent transparent;
+    }
+
+}

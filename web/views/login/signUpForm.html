@@ -1,0 +1,72 @@
+<div class="content login_page_form active">
+
+    <!--SUBTITLE-->
+    <div class="login_form_subtitle">
+        <p>Enter your email and desired password to begin</p>
+    </div>
+
+    <!--FORM-->
+    <form name="singUpForm" class="stylized-form" ng-submit="signUp()">
+
+        <!--email-->
+        <div class="relative-container">
+            <input class="tip-left"
+                   type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   ng-model="email"
+                   required
+                   ng-pattern="REGEX.EMAIL"
+                   required
+                   validate-tooltip
+                   error-text="{
+                        pattern: 'Please input a valid email address',
+                        required: 'Enter your email'
+                   }"/>
+
+            <i class="step fi-mail"></i>
+        </div>
+
+        <!--password-->
+        <div class="relative-container">
+            <input class="tip-right"
+                   type="password"
+                   name="password"
+                   placeholder="Enter your password"
+                   ng-model="password"
+                   ng-minlength="8"
+                   ng-maxlength="50"
+                   required
+                   validate-tooltip
+                   error-text="{
+                        minlength: 'Min length 8 characters',
+                        maxlength: 'Max length 50 characters',
+                        required: 'Enter your password'
+                   }" />
+
+            <i class="step fi-unlock"></i>
+        </div>
+
+        <!--MESSAGE-->
+        <div class="login_msg last"
+             clean-tmp-text="action"
+             duration="1000" >
+        </div>
+
+        <!--BUTTON-->
+        <button class="small button border_radius green"
+                type="submit"
+                ng-disabled="singUpForm.$invalid">
+            Get started!
+        </button>
+
+        <!--PRIVACY POLICY-->
+        <div class="privacy_policy">
+          I agree to the
+          <a href="http://envoyrecharge.com/terms">terms of use</a>
+          and
+          <a href="http://envoyrecharge.com/privacy">privacy policy</a>
+        </div>
+
+    </form>
+</div>

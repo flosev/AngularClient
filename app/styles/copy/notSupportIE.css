@@ -1,0 +1,23 @@
+
+
+.not-support-ie {
+    display: block !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+
+    z-index: 999999;
+}
+
+.not-support-ie .info-box {
+    text-align: center;
+    margin-top: 20%;
+    color: #fff;
+    font-size: 18pt;
+}
+
